@@ -1,0 +1,18 @@
+- hosts: localhost
+  tasks:
+    - name: Create .ssh directory
+      file: 
+        dest: "{{ lookup('env', 'HOME') }}/.ssh"
+        mode: 0700
+        state: directory
+    - name: Install ssh key
+      copy:
+        src: "./.ssh/id_rsa"
+        dest: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+        mode: 0600
+    - name: Install ssh pub key
+      copy:
+        src: "./.ssh/id_rsa.pub"
+        dest: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa.pub"
+        mode: 0600
+
