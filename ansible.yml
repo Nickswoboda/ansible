@@ -21,7 +21,3 @@
         dest: "{{ lookup('env', 'HOME') }}/devenv-setup"
         accept_hostkey: yes
 
-- name: Start devenv setup playbook
-  ansible.builtin.import_playbook: "{{ lookup('env', 'HOME') }}/devenv-setup/ansible.yml"
-
-
